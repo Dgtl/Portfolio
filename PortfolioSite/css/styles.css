@@ -1,0 +1,43 @@
+a:link, a:visited, a:hover, a:active {
+    color: cyan;
+}
+body {
+    background-color: black;
+    font-family: monospace;
+
+}
+.hidden {
+    display: none;
+}
+nav {
+
+    font-size: x-large;
+    color: #18fc00;
+    display: block;
+    word-wrap: normal;
+
+}
+#resume, .hidden {
+    margin: 0;
+    padding: 0;
+}
+#column1, #column2, #column3 {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 4%;
+    padding-left: 0.5%;
+    max-width: 24%;
+    border-left: 4px solid #18fc00;
+
+}
+.code{
+
+    color: #18fc00;
+    display: block;
+    word-wrap: normal;
+
+}
+li {
+    display: inline;
+}
+

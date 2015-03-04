@@ -1,0 +1,19 @@
+convert text to random hex and back to text in realtime //DONE
+	have html body of text //DONE
+	convert to array of characters //DONE
+	fill array of same length with random 1s and 0s //DONE
+		//Loop through array
+		//replace each in binary array with equivalent index of character array
+	replace binary array at each index with characters from html text in realtime
+		return subarray excluding 1 charactor at beginning of binary array
+		return subarray from resume array containing 1 character from beginning
+		concat() the two arrays
+		repeat
+
+monospaced font //DONE
+
+never bind to load inside a jQUery $ //DONE
+http://jsfiddle.net/k638xytm/2/
+
+Felicia Notes:
+	make the tabs like sublime text
