@@ -1,2 +1,2 @@
-# SchoolWork
-Just some programs created during my college career
+# Portfolio
+Things I've been working on.
