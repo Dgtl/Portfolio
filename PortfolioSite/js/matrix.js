@@ -3,35 +3,43 @@
 //var tmpArray = [];
 //var index = 1;
 //var OFFSET = 2;
+var count = 0;
 
 $(function () {
 
-    init($('#column1'));
-    init($('#column2'));
-    init($('#column3'));
+    $('span.code').each(function() {
+        draw($(this));
+    });
+
 });
 
-function init(column) {
+//depreciated
+function multiDraw(element) {
 
-    console.log("init called");
-    var content = column.find(".hidden").text().split('');
+    count += 1;
+    console.log("multiDraw called ", count, " times" );
+    console.log(get_type(element));
+
+    if (count > 50){
+        return;
+    }
+
+    draw(element);
+
+}
+
+function draw(element) {
+
+    console.log('draw called');
+    console.log(get_type(element));
+
+    var content = element.text().split('');
     var tmpBinArray = binArray(content.length); //generate and store binary array
     var index = 1;
     var OFFSET = 2;
 
-    console.log(content.join(''));
-    draw(content, tmpBinArray, index, OFFSET, column);
-
-}
-
-function draw(content, binArray, index, OFFSET, column) {
-
-    console.log('draw called');
-
-    console.log(content.join(''));
-
     var animation = setInterval(function () {
-        decrypt(content, binArray, index, column);
+        decrypt(content, tmpBinArray, index, element);
         index += 1;
         if (index > content.length + OFFSET){
             clearInterval(animation);
@@ -42,17 +50,24 @@ function draw(content, binArray, index, OFFSET, column) {
 }
 
 //provides decryption effect on some array
-function decrypt(charArray, binArray, index, column) {
+function decrypt(charArray, binArray, index, element) {
 
     console.log('decrypt called');
 
-    //hopefully realtime decryption effect
+    //hopefully real-time decryption effect
     var tmpArray = charArray.slice(0,index).concat(binArray.slice(index));
     //console.log(tmpArray.join(''));
-    fillText(tmpArray.join(''), column);
+    fillText(tmpArray.join(''), element);
     console.log(index);
 
     console.log('decrypt finished');
+
+}
+
+//fill main text area using jQuery
+function fillText(content, element ) {
+
+    element.text(content);
 
 }
 
@@ -73,13 +88,6 @@ function binArray(length) {
     }
 
     return array;
-}
-
-//fill main text area using jQuery
-function fillText(content, column ) {
-
-    column.children(".code").text(content);
-
 }
 
 //temp function to determine object's type
