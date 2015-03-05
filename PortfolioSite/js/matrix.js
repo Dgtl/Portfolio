@@ -45,7 +45,7 @@ function draw(element) {
             clearInterval(animation);
             console.log('draw complete');
         }
-    }, Math.random() * 30);
+    }, generateSpeed(content.length));
 
 }
 
@@ -58,7 +58,7 @@ function decrypt(charArray, binArray, index, element) {
     var tmpArray = charArray.slice(0,index).concat(binArray.slice(index));
     //console.log(tmpArray.join(''));
     fillText(tmpArray.join(''), element);
-    console.log(index);
+    console.log(charArray.length);
 
     console.log('decrypt finished');
 
@@ -69,6 +69,15 @@ function fillText(content, element ) {
 
     element.text(content);
 
+}
+
+//generate interval speed
+function generateSpeed(content){
+    if (content < 70) {
+        return 100 + (Math.random() * 40);
+    } else {
+        return 1+ (Math.random() * 20);
+    }
 }
 
 // return an empty array filled with random 1s and 0s

@@ -1,3 +1,8 @@
+.code{
+    color: #18fc00;
+    display: block;
+    word-wrap: normal;
+}
 a:link, a:visited, a:hover, a:active {
     color: cyan;
 }
@@ -6,38 +11,93 @@ body {
     font-family: monospace;
 
 }
-.hidden {
-    display: none;
-}
 nav {
-
     font-size: x-large;
     color: #18fc00;
     display: block;
     word-wrap: normal;
-
+}
+li {
+    display: inline;
 }
 #resume, .hidden {
     margin: 0;
     padding: 0;
 }
-#column1, #column2, #column3 {
+#column1, #column2 {
     display: inline-block;
     vertical-align: top;
     margin-left: 4%;
-    padding-left: 0.5%;
-    max-width: 24%;
+    max-width: 15%;
+
+}
+#column2 {
+    max-width: 70%;
+    padding-left: 2.5%;
     border-left: 4px solid #18fc00;
-
 }
-.code{
-
-    color: #18fc00;
-    display: block;
+h1, h2, h3 {
+    margin: 0;
     word-wrap: normal;
-
 }
-li {
-    display: inline;
+h1 {
+    font-size: 8vw;
+    padding: 0;
+}
+h2 {
+    font-size: x-large;
+    padding: 0.5%;
+}
+h3 {
+    font-size: large;
+}
+#column1 h3 {
+    padding-top: 4.5%;
+}
+#column2 h3 {
+    padding-left: 2%;
+}
+.pad {
+    padding-left: 4%;
+    font-size: medium;
+}
+button {
+    background-color: black;
+    border-color: cyan;
+}
+@media (min-width: 1800px){
+    h1 {
+        font-size: 8vw;
+        padding: 0;
+    }
+    h2 {
+        font-size: 22pt;
+        padding: 0.5%;
+    }
+    h3 {
+        font-size: 18pt;
+    }
+    .pad {
+        padding-left: 4%;
+        font-size: 15pt;
+    }
+}
+@media (max-width: 700px){
+    #column1 {
+        float: none;
+        display: block;
+        max-width: 100%;
+    }
+    #column2 {
+        float: none;
+        display: block;
+        max-width: 100%;
+        border-left: none;
+        padding-left: 0;
+        padding-top: 4%;
+    }
+    h1 {
+        display: none;
+    }
 }
 
