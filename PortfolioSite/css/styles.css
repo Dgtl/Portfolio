@@ -1,10 +1,12 @@
 .code{
-    color: #18fc00;
     display: block;
     word-wrap: normal;
 }
-a:link, a:visited, a:hover, a:active {
-    color: cyan;
+a:link, a:hover, a:active {
+    color: #18fc00;
+}
+a:visited {
+    color: purple;
 }
 body {
     background-color: black;
@@ -43,13 +45,20 @@ h1, h2, h3 {
 h1 {
     font-size: 8vw;
     padding: 0;
+    color: red;
 }
 h2 {
     font-size: x-large;
     padding: 0.5%;
 }
+h2 span {
+    color: red;
+}
 h3 {
     font-size: large;
+}
+h3 span{
+    color: cyan;
 }
 #column1 h3 {
     padding-top: 4.5%;
@@ -61,9 +70,13 @@ h3 {
     padding-left: 4%;
     font-size: medium;
 }
+.pad span {
+    color: #18fc00;
+}
 button {
     background-color: black;
     border-color: cyan;
+    color: #18fc00;
 }
 @media (min-width: 1800px){
     h1 {

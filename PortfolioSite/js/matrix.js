@@ -80,7 +80,7 @@ function generateSpeed(content){
     }
 }
 
-// return an empty array filled with random 1s and 0s
+// return an array filled with random 1s and 0s
 function binArray(length) {
 
     var array = [];
