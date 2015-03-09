@@ -13,21 +13,6 @@ $(function () {
 
 });
 
-//depreciated
-function multiDraw(element) {
-
-    count += 1;
-    console.log("multiDraw called ", count, " times" );
-    console.log(get_type(element));
-
-    if (count > 50){
-        return;
-    }
-
-    draw(element);
-
-}
-
 function draw(element) {
 
     console.log('draw called');
@@ -56,22 +41,15 @@ function draw(element) {
 //provides decryption effect on some array
 function decrypt(charArray, binArray, index, element) {
 
-    //console.log('decrypt called');
-    drawing = true;
-    //hopefully real-time decryption effect
+    //real-time decryption effect
     var tmpArray = charArray.slice(0,index).concat(binArray.slice(index));
-    //console.log(tmpArray.join(''));
     fillText(tmpArray.join(''), element);
-    //console.log(charArray.length);
-
-   // console.log('decrypt finished');
 
 }
 
-//fill main text area using jQuery
+//fill element text area
 function fillText(content, element ) {
 
-    drawing = true;
     element.text(content);
 
 }
@@ -109,17 +87,11 @@ function binArray(length) {
     return array;
 }
 
-//temp function to determine object's type
-function get_type(thing) {
-    if (thing === null) return "[object Null]"; // special case
-    return Object.prototype.toString.call(thing);
-}
-
 //redo primary function on button click
 function recrypt() {
 
     var button = $( "button")
-    var waitTime = 2000;
+    var WAIT_TIME = 2000;
 
     if (drawCount == 0) {
 
@@ -131,6 +103,6 @@ function recrypt() {
         button.text( "Wait" );
         setTimeout( function(){
             button.text( "Decrypt" );
-        }, waitTime);
+        }, WAIT_TIME);
     }
 }
