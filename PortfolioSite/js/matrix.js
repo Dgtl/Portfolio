@@ -3,11 +3,11 @@
 //var tmpArray = [];
 //var index = 1;
 //var OFFSET = 2;
-var count = 0;
+var drawCount = 0;
 
 $(function () {
 
-    $('span.code').each(function() {
+    $('span.code').each(function () {
         draw($(this));
     });
 
@@ -31,18 +31,22 @@ function multiDraw(element) {
 function draw(element) {
 
     console.log('draw called');
-    console.log(get_type(element));
+    drawCount += 1;
+    console.log('draw count is: ', drawCount);
 
     var content = element.text().split('');
     var tmpBinArray = binArray(content.length); //generate and store binary array
     var index = 1;
     var OFFSET = 2;
 
+
     var animation = setInterval(function () {
         decrypt(content, tmpBinArray, index, element);
         index += 1;
         if (index > content.length + OFFSET){
             clearInterval(animation);
+            drawCount -= 1;
+            console.log('draw count is: ', drawCount);
             console.log('draw complete');
         }
     }, generateSpeed(content.length));
@@ -52,31 +56,37 @@ function draw(element) {
 //provides decryption effect on some array
 function decrypt(charArray, binArray, index, element) {
 
-    console.log('decrypt called');
-
+    //console.log('decrypt called');
+    drawing = true;
     //hopefully real-time decryption effect
     var tmpArray = charArray.slice(0,index).concat(binArray.slice(index));
     //console.log(tmpArray.join(''));
     fillText(tmpArray.join(''), element);
-    console.log(charArray.length);
+    //console.log(charArray.length);
 
-    console.log('decrypt finished');
+   // console.log('decrypt finished');
 
 }
 
 //fill main text area using jQuery
 function fillText(content, element ) {
 
+    drawing = true;
     element.text(content);
 
 }
 
 //generate interval speed
 function generateSpeed(content){
+
+    var speed;
+
     if (content < 70) {
-        return 100 + (Math.random() * 40);
+        speed = 100 + (Math.random() * 40);
+        return speed;
     } else {
-        return 1+ (Math.random() * 20);
+        speed = 1 + (Math.random() * 20);
+        return speed;
     }
 }
 
@@ -103,4 +113,24 @@ function binArray(length) {
 function get_type(thing) {
     if (thing === null) return "[object Null]"; // special case
     return Object.prototype.toString.call(thing);
+}
+
+//redo primary function on button click
+function recrypt() {
+
+    var button = $( "button")
+    var waitTime = 2000;
+
+    if (drawCount == 0) {
+
+        $('span.code').each(function () {
+            draw($(this));
+        });
+
+    } else {
+        button.text( "Wait" );
+        setTimeout( function(){
+            button.text( "Decrypt" );
+        }, waitTime);
+    }
 }
